@@ -206,19 +206,7 @@
       text-decoration: none;
       flex-shrink: 0;
     }
-    .logo-mark {
-      width: 36px; height: 36px;
-      background: linear-gradient(135deg, #6BB93F, #4a8a2a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      font-size: 18px;
-      color: var(--btn-text);
-    }
-    .logo-text { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; }
-    .logo-text span { color: var(--primary); }
+    .logo-img { height: 34px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
     .nav-links a {
       padding: 8px 14px;
@@ -727,7 +715,7 @@
       .engine-chip { font-size: 12px; padding: 4px 10px; }
 
       /* Nav */
-      .logo-text { font-size: 18px; }
+      .logo-img { height: 28px; }
       .hamburger { padding: 8px; }
 
       /* Tabs */
@@ -781,8 +769,7 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <div class="logo-mark">W</div>
-      <span class="logo-text">Waz<span>cher</span></span>
+      <img src="logo.png" alt="Wazcher" class="logo-img">
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#product"  data-i18n="nav_product">Product</a></li>
@@ -835,7 +822,7 @@
       <div class="hero-ctas animate d3">
         <a href="#contact" class="btn btn-primary btn-lg">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          <span data-i18n="hero_cta1">Start Free Trial — 14 Days</span>
+          <span data-i18n="hero_cta1">Get Started →</span>
         </a>
         <a href="#product" class="btn btn-ghost btn-lg" data-i18n="hero_cta2">See How It Works →</a>
       </div>
@@ -856,7 +843,7 @@
     <div class="stats-grid">
       <div class="stat-item animate"><div class="stat-num" data-count="4">4</div><div class="stat-label" data-i18n="stat1">AI Engines Monitored</div></div>
       <div class="stat-item animate d1"><div class="stat-num">6-Step</div><div class="stat-label" data-i18n="stat2">Closed-Loop Optimization</div></div>
-      <div class="stat-item animate d2"><div class="stat-num">14-Day</div><div class="stat-label" data-i18n="stat3">Free Trial, No Credit Card</div></div>
+      <div class="stat-item animate d2"><div class="stat-num">24/7</div><div class="stat-label" data-i18n="stat3">Real-time AI Monitoring</div></div>
       <div class="stat-item animate d3"><div class="stat-num" data-count="13">13</div><div class="stat-label" data-i18n="stat4">Languages Supported</div></div>
     </div>
   </div>
@@ -1135,7 +1122,7 @@
   <div class="container">
     <div class="section-tag animate"><span class="tag" data-i18n="price_tag">Plans</span></div>
     <h2 class="section-title animate d1" data-i18n="price_title">Find the Plan That <span class="accent">Fits Your Brand.</span></h2>
-    <p class="section-sub animate d2" data-i18n="price_sub">Every plan includes a 14-day free trial with full Pro features. Talk to us and we'll help you pick the right one.</p>
+    <p class="section-sub animate d2" data-i18n="price_sub">Not sure which plan fits your brand? Talk to us and we'll help you find the right one.</p>
     <div class="plans-grid">
       <div class="plan-card animate">
         <div class="plan-tier" data-i18n="pl1_tier">Starter</div>
@@ -1162,7 +1149,7 @@
           <li data-i18n="pl2_f4">Social posting</li>
           <li data-i18n="pl2_f5">Full brand analysis</li>
         </ul>
-        <a href="#contact" class="btn btn-primary plan-cta" data-i18n="pl_cta_pro">Start Free Trial →</a>
+        <a href="#contact" class="btn btn-primary plan-cta" data-i18n="pl_cta_pro">Talk to Us →</a>
       </div>
 
       <div class="plan-card animate d2">
@@ -1271,9 +1258,9 @@
       </div>
       <div class="faq-item animate d3">
         <button class="faq-q" onclick="toggleFaq(this)">
-          <span data-i18n="faq4_q">Is there a free trial?</span><span class="faq-icon">+</span>
+          <span data-i18n="faq4_q">How do I know which plan is right for me?</span><span class="faq-icon">+</span>
         </button>
-        <div class="faq-body"><div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">Yes. All plans include a 14-day free trial with full Pro features and no credit card required. Reach out to Wazcher and we will handle the setup for you.</div></div></div>
+        <div class="faq-body"><div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">Every brand has different needs. Reach out to Wazcher and we'll walk you through the options — no pressure, just a straightforward conversation about your goals.</div></div></div>
       </div>
       <div class="faq-item animate d4">
         <button class="faq-q" onclick="toggleFaq(this)">
@@ -1300,7 +1287,7 @@
         <h2 data-i18n="ct_title">Ready to Get<br><span class="accent">Cited by AI?</span></h2>
         <p data-i18n="ct_body">Tell us about your brand and we will recommend the right Citora plan, handle setup in Chinese, and get your first AI Profile live within 24 hours.</p>
         <div class="contact-details">
-          <div class="contact-item"><span>📧</span><span><span data-i18n="ct_email_label">Email:</span> <a href="mailto:hello@wazcher.com">hello@wazcher.com</a></span></div>
+          <div class="contact-item"><span>📧</span><span><span data-i18n="ct_email_label">Email:</span> <a href="mailto:contact@wazcher.com">contact@wazcher.com</a></span></div>
           <div class="contact-item"><span>✦</span><span data-i18n="ct_partner">Authorized Citora Partner</span></div>
           <div class="contact-item"><span>⏱</span><span data-i18n="ct_response">Response within 24 hours</span></div>
         </div>
@@ -1325,7 +1312,7 @@
             <label data-i18n="f_plan">Plan of Interest</label>
             <select id="inp-plan">
               <option value="" data-i18n="f_plan_ph">Select a plan</option>
-              <option data-i18n="f_opt1">Free Trial (14 days)</option>
+              <option data-i18n="f_opt1">Just Getting Started</option>
               <option data-i18n="f_opt2">Starter — $49/mo</option>
               <option data-i18n="f_opt3">Pro — $129/mo</option>
               <option data-i18n="f_opt4">Business — $349/mo</option>
@@ -1348,14 +1335,14 @@
 <!-- CTA BAND -->
 <section class="cta-band">
   <div class="container">
-    <h2 class="animate" data-i18n="cta_title">Start Your <span class="accent">Free Trial</span> Today.</h2>
-    <p class="animate d1" data-i18n="cta_sub">Fourteen days, full Pro features, no credit card required.</p>
+    <h2 class="animate" data-i18n="cta_title">Ready to Make Your Brand <span class="accent">Unforgettable to AI?</span></h2>
+    <p class="animate d1" data-i18n="cta_sub">Talk to a Wazcher expert and find out how Citora can work for your brand.</p>
     <div class="cta-btns animate d2">
-      <a href="#contact" class="btn btn-primary btn-lg">
-        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-i18n="cta_btn1">Get Started Free</span>
+      <a href="#contact" class="btn btn-primary">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span data-i18n="cta_btn1">Get Started</span>
       </a>
-      <a href="#why" class="btn btn-ghost btn-lg" data-i18n="cta_btn2">Learn More</a>
+      <a href="#why" class="btn btn-ghost" data-i18n="cta_btn2">Learn More</a>
     </div>
   </div>
 </section>
@@ -1365,7 +1352,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo"><div class="logo-mark">W</div><span class="logo-text">Waz<span>cher</span></span></a>
+        <a href="#" class="logo"><img src="logo.png" alt="Wazcher" class="logo-img"></a>
         <p data-i18n="ft_desc">Wazcher is an authorized Citora partner, helping brands earn citations in AI-generated answers.</p>
         <div class="social-links">
           <a href="#" class="social-link" aria-label="LinkedIn">in</a>
@@ -1390,7 +1377,7 @@
           <li><a href="#pricing" data-i18n="pl2_tier">Pro</a></li>
           <li><a href="#pricing" data-i18n="pl3_tier">Business</a></li>
           <li><a href="#pricing" data-i18n="pl4_tier">Enterprise</a></li>
-          <li><a href="#contact" data-i18n="ft_free">Free Trial</a></li>
+          <li><a href="#contact" data-i18n="ft_free">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1420,10 +1407,10 @@ const t = {
     hero_tag:'Citora Official Authorized Partner',
     hero_h1:'Make Your Brand<br><span class="accent">Unforgettable to AI.</span>',
     hero_sub:'Wazcher is an authorized <strong>Citora</strong> partner. Get your brand cited by the AI engines your customers already trust — ChatGPT, Claude, Gemini, and Perplexity.',
-    hero_cta1:'Start Free Trial — 14 Days', hero_cta2:'See How It Works →',
+    hero_cta1:'Get Started →', hero_cta2:'See How It Works →',
     ai_label:'Covers:',
     stat1:'AI Engines Monitored', stat2:'Closed-Loop Optimization',
-    stat3:'Free Trial, No Credit Card', stat4:'Languages Supported',
+    stat3:'Real-time AI Monitoring', stat4:'Languages Supported',
     prob_tag:'The Problem',
     prob_title:'AI Search Has Changed <span class="accent">Everything.</span>',
     prob_sub:'Users no longer scroll ten blue links. They ask AI directly, and AI picks winners. Is your brand one of them?',
@@ -1501,7 +1488,7 @@ const t = {
     mon_live:'Live', mon_status:'Monitoring 4/4 engines',
     price_tag:'Plans',
     price_title:'Find the Plan That <span class="accent">Fits Your Brand.</span>',
-    price_sub:'Every plan includes a 14-day free trial with full Pro features. Talk to us and we\'ll help you pick the right one.',
+    price_sub:'Not sure which plan fits your brand? Talk to us and we\'ll help you find the right one.',
     price_note:'Not sure which plan fits? <a href="#contact" style="color:var(--primary-dark);font-weight:600;">Send us a message</a> and we\'ll figure it out together.',
     pl_badge:'✦ Most Chosen',
     pl1_tier:'Starter', pl1_for:'For individuals and small brands',
@@ -1512,7 +1499,7 @@ const t = {
     pl3_f1:'Up to 35 sites', pl3_f2:'API access', pl3_f3:'Advanced analytics', pl3_f4:'Priority support',
     pl4_tier:'Enterprise', pl4_for:'For large teams needing full control',
     pl4_f1:'White label', pl4_f2:'Custom subdomain', pl4_f3:'Dedicated support', pl4_f4:'Custom integrations',
-    pl_cta:'Talk to Us →', pl_cta_pro:'Start Free Trial →',
+    pl_cta:'Talk to Us →', pl_cta_pro:'Talk to Us →',
     why_tag:'Why Wazcher',
     why_title:"Citora's Platform. <span class='accent'>Expert Guidance.</span>",
     why_body:"Wazcher is not just a reseller. We are your dedicated GEO growth partner — a certified team that learns your brand, handles setup, and helps you get results faster.",
@@ -1530,8 +1517,8 @@ const t = {
     faq2_a:"Most GEO tools only monitor: they show a score and leave optimization to guesswork. Citora closes the full loop by adding analysis, an AI Profile editor, statistically rigorous A/B experiments (chi-squared, Cohen's h, UCB bandit), and one-click deployment, all in one continuous cycle.",
     faq3_q:'Why work with Wazcher instead of signing up directly?',
     faq3_a:"Wazcher is an authorized Citora partner. You get a dedicated account manager, guided onboarding, and expert GEO support — faster and more effective than self-serve.",
-    faq4_q:'Is there a free trial?',
-    faq4_a:"Yes. All plans include a 14-day free trial with full Pro features and no credit card required. Reach out to Wazcher and we will handle the setup for you.",
+    faq4_q:'How do I know which plan is right for me?',
+    faq4_a:"Every brand has different needs. Reach out to Wazcher and we'll walk you through the options — no pressure, just a straightforward conversation about your goals.",
     faq5_q:'Which AI engines does Citora support?',
     faq5_a:'Citora supports ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), and Perplexity. Pro plans and above include all four engines. Starter covers two.',
     faq6_q:'How do I get started?',
@@ -1542,20 +1529,20 @@ const t = {
     ct_email_label:'Email:', ct_partner:'Authorized Citora Partner', ct_response:'Response within 24 hours',
     f_name:'Name *', f_company:'Company', f_email:'Email *', f_plan:'Plan of Interest',
     f_plan_ph:'Select a plan', f_msg:'Message',
-    f_opt1:'Free Trial (14 days)', f_opt2:'Starter — $49/mo', f_opt3:'Pro — $129/mo',
-    f_opt4:'Business — $349/mo', f_opt5:'Enterprise — $799/mo', f_opt6:'Not sure yet',
+    f_opt1:'Just Getting Started', f_opt2:'Starter Plan', f_opt3:'Pro Plan',
+    f_opt4:'Business Plan', f_opt5:'Enterprise Plan', f_opt6:'Not sure yet',
     f_submit:'Send Message', f_note:'We respond within 24 hours',
     f_success:'Message sent. We will be in touch shortly.',
-    cta_title:'Start Your <span class="accent">Free Trial</span> Today.',
-    cta_sub:'Fourteen days, full Pro features, no credit card required.',
-    cta_btn1:'Get Started Free', cta_btn2:'Learn More',
+    cta_title:'Ready to Make Your Brand <span class="accent">Unforgettable to AI?</span>',
+    cta_sub:'Talk to a Wazcher expert and find out how Citora can work for your brand.',
+    cta_btn1:'Get Started', cta_btn2:'Learn More',
     ft_desc:'Wazcher is an authorized Citora partner, helping brands earn citations in AI-generated answers.',
     ft_col1:'Product', ft_col2:'Plans', ft_col3:'Company',
     ft_p1:'AI Profile Editor', ft_p2:'Brand Monitoring', ft_p3:'A/B Experiments',
     ft_p4:'Keyword Discovery', ft_p5:'Social Posting',
-    ft_free:'Free Trial', ft_about:'About Wazcher', ft_contact:'Contact',
+    ft_free:'Contact Us', ft_about:'About Wazcher', ft_contact:'Contact',
     ft_citora:'Citora Official Site ↗', ft_manual:'Citora Manual ↗',
-    ft_copy:'© 2025 Wazcher. Authorized Citora Partner',
+    ft_copy:'© 2026 Wazcher. Authorized Citora Partner',
   },
   zh: {
     nav_product:'產品介紹', nav_features:'功能特色', nav_pricing:'方案選擇',
@@ -1564,10 +1551,10 @@ const t = {
     hero_tag:'Citora 官方授權代理商',
     hero_h1:'讓你的品牌<br><span class="accent">在 AI 時代被看見。</span>',
     hero_sub:'Wazcher 是 <strong>Citora</strong> 的授權代理商。讓你的品牌出現在 ChatGPT、Claude、Gemini 和 Perplexity 的推薦清單裡。',
-    hero_cta1:'免費試用 14 天', hero_cta2:'了解更多 →',
+    hero_cta1:'立即開始 →', hero_cta2:'了解更多 →',
     ai_label:'支援引擎：',
     stat1:'AI 引擎覆蓋數', stat2:'完整閉環優化',
-    stat3:'免費試用・無需信用卡', stat4:'支援語言數',
+    stat3:'全天候 AI 監測', stat4:'支援語言數',
     prob_tag:'問題核心',
     prob_title:'AI 搜尋正在<span class="accent">改變一切。</span>',
     prob_sub:'現在的用戶不再滑動十條搜尋結果，他們直接問 AI。而 AI 決定推薦誰——你的品牌在名單裡嗎？',
@@ -1645,7 +1632,7 @@ const t = {
     mon_live:'即時監測中', mon_status:'正在監測全部 4 個引擎',
     price_tag:'方案介紹',
     price_title:'找到最適合你的<span class="accent">方案。</span>',
-    price_sub:'每個方案都附 14 天完整 Pro 功能免費試用，聯絡我們，我們幫你選出最合適的。',
+    price_sub:'不確定哪個方案最適合你的品牌？聯絡我們，我們幫你找出最合適的選擇。',
     price_note:'還不確定哪個方案適合你？<a href="#contact" style="color:var(--primary-dark);font-weight:600;">傳訊息給我們</a>，一起找到最佳解法。',
     pl_badge:'✦ 最多人選擇',
     pl1_tier:'Starter', pl1_for:'適合個人創作者與小型品牌',
@@ -1656,7 +1643,7 @@ const t = {
     pl3_f1:'最多 35 個網站', pl3_f2:'API 串接', pl3_f3:'進階數據分析', pl3_f4:'優先客服支援',
     pl4_tier:'Enterprise', pl4_for:'適合需要完整掌控權的大型企業',
     pl4_f1:'白標品牌客製', pl4_f2:'自訂子網域', pl4_f3:'專屬客服團隊', pl4_f4:'客製化系統整合',
-    pl_cta:'與我們聯絡 →', pl_cta_pro:'立即免費試用 →',
+    pl_cta:'與我們聯絡 →', pl_cta_pro:'與我們聯絡 →',
     why_tag:'為什麼選擇 Wazcher',
     why_title:"Citora 平台・<span class='accent'>專業夥伴陪跑。</span>",
     why_body:'Wazcher 不只是代理商，而是你的 GEO 成長夥伴。我們的認證團隊會深入了解你的品牌，從頭到尾陪你走完每一步。',
@@ -1674,8 +1661,8 @@ const t = {
     faq2_a:"大多數 GEO 工具只給你一個分數，剩下靠自己摸索。Citora 打通了完整閉環：從分析、AI Profile 編輯器，到具備統計嚴謹性的 A/B 測試（卡方檢定、Cohen's h、UCB 演算法），再到一鍵部署——全部在同一平台連貫完成。",
     faq3_q:'為什麼要透過 Wazcher，而不是直接訂閱 Citora？',
     faq3_a:'透過 Wazcher，你能獲得專屬客戶經理、引導式平台導入，以及持續的 GEO 策略支援——比自行摸索更快上手，效果也更好。',
-    faq4_q:'有免費試用嗎？',
-    faq4_a:'有，每個方案都包含 14 天完整 Pro 功能的免費試用，不需要信用卡。填寫聯絡表單，我們會幫你處理所有設定。',
+    faq4_q:'我怎麼知道哪個方案最適合我？',
+    faq4_a:'每個品牌的需求都不一樣。聯絡 Wazcher，我們會帶你了解各方案的差異，沒有任何壓力，就是一場關於你品牌目標的直接對話。',
     faq5_q:'Citora 支援哪些 AI 引擎？',
     faq5_a:'目前支援 ChatGPT（OpenAI）、Claude（Anthropic）、Gemini（Google）和 Perplexity。Pro 以上方案涵蓋全部四個引擎；Starter 方案包含其中兩個。',
     faq6_q:'如何開始使用？',
@@ -1686,20 +1673,20 @@ const t = {
     ct_email_label:'Email：', ct_partner:'Citora 官方授權代理商', ct_response:'24 小時內回覆',
     f_name:'姓名 *', f_company:'公司名稱', f_email:'Email *', f_plan:'有興趣的方案',
     f_plan_ph:'請選擇方案', f_msg:'留言內容',
-    f_opt1:'免費試用（14 天）', f_opt2:'Starter 方案', f_opt3:'Pro 方案',
+    f_opt1:'剛開始評估', f_opt2:'Starter 方案', f_opt3:'Pro 方案',
     f_opt4:'Business 方案', f_opt5:'Enterprise 方案', f_opt6:'還沒確定',
     f_submit:'送出訊息', f_note:'我們會在 24 小時內回覆',
     f_success:'訊息已送出！我們會盡快與你聯繫。',
-    cta_title:'今天就<span class="accent">免費開始</span>吧。',
-    cta_sub:'14 天完整 Pro 功能，不需信用卡，隨時可以取消。',
-    cta_btn1:'立即免費試用', cta_btn2:'了解更多',
+    cta_title:'準備好讓你的品牌<span class="accent">在 AI 中被看見？</span>',
+    cta_sub:'與 Wazcher 專家聊聊，了解 Citora 如何為你的品牌發揮作用。',
+    cta_btn1:'立即開始', cta_btn2:'了解更多',
     ft_desc:'Wazcher 是 Citora 的官方授權代理商，協助品牌在 AI 生成的答案中獲得引用與推薦。',
     ft_col1:'產品功能', ft_col2:'方案選擇', ft_col3:'關於我們',
     ft_p1:'AI Profile 編輯器', ft_p2:'品牌監測', ft_p3:'A/B 實驗',
     ft_p4:'關鍵字探索', ft_p5:'社群貼文',
-    ft_free:'免費試用', ft_about:'關於 Wazcher', ft_contact:'聯絡我們',
+    ft_free:'聯絡我們', ft_about:'關於 Wazcher', ft_contact:'聯絡我們',
     ft_citora:'Citora 官方網站 ↗', ft_manual:'Citora 使用手冊 ↗',
-    ft_copy:'© 2025 Wazcher · Citora 官方授權代理商',
+    ft_copy:'© 2026 Wazcher · Citora 官方授權代理商',
   }
 };
 
