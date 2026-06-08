@@ -446,6 +446,82 @@
       background-color: var(--primary);
     }
 
+    /* ─── PLAN FINDER QUIZ ─── */
+    .quiz-wrap {
+      max-width: 640px; margin: 0 auto;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .quiz-messages {
+      padding: 28px 28px 8px; display: flex; flex-direction: column; gap: 12px;
+      min-height: 80px;
+    }
+    .quiz-msg { display: flex; gap: 10px; animation: qfade 0.3s ease; }
+    @keyframes qfade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+    .quiz-msg.bot { align-items: flex-start; }
+    .quiz-msg.user { justify-content: flex-end; }
+    .quiz-avatar {
+      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: var(--btn-text); font-weight: 700;
+    }
+    .quiz-bubble {
+      max-width: 80%; padding: 11px 15px; border-radius: 14px;
+      font-size: 14px; line-height: 1.6;
+    }
+    .quiz-msg.bot .quiz-bubble {
+      background: var(--bg3); color: var(--text);
+      border-bottom-left-radius: 4px;
+    }
+    .quiz-msg.user .quiz-bubble {
+      background: var(--primary); color: var(--btn-text);
+      border-bottom-right-radius: 4px; font-weight: 600;
+    }
+    .quiz-typing { display: flex; gap: 4px; align-items: center; padding: 4px 2px; }
+    .quiz-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); animation: qdot 1.2s infinite; }
+    .quiz-dot:nth-child(2) { animation-delay: 0.2s; }
+    .quiz-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes qdot { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+    .quiz-opts {
+      padding: 12px 28px 24px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .quiz-opt {
+      padding: 11px 16px; border-radius: 10px;
+      border: 1px solid var(--border); background: var(--card);
+      color: var(--text); font-size: 14px; font-weight: 500;
+      cursor: pointer; font-family: inherit; text-align: left;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      animation: qfade 0.25s ease;
+    }
+    .quiz-opt:hover { border-color: var(--primary); background: rgba(107,185,63,0.06); transform: translateX(3px); }
+    .quiz-opt:disabled { opacity: 0.4; cursor: default; transform: none; }
+    .quiz-result {
+      margin: 0 28px 28px; padding: 24px;
+      border-radius: 14px; border: 2px solid var(--primary);
+      background: rgba(107,185,63,0.05); animation: qfade 0.4s ease;
+    }
+    .quiz-result-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+    .quiz-result-plan { font-size: 24px; font-weight: 800; font-family: 'Sora', sans-serif; margin-bottom: 8px; }
+    .quiz-result-desc { font-size: 14px; color: var(--text2); line-height: 1.65; margin-bottom: 18px; }
+    .quiz-result-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .quiz-restart {
+      padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border); background: transparent; color: var(--text2);
+      cursor: pointer; font-family: inherit; transition: all 0.2s;
+    }
+    .quiz-restart:hover { border-color: var(--primary-border); color: var(--primary-dark); }
+    @media (max-width: 600px) {
+      .quiz-messages { padding: 20px 16px 8px; }
+      .quiz-opts { padding: 8px 16px 20px; }
+      .quiz-result { margin: 0 16px 20px; }
+    }
+
     /* ─── PLANS ─── */
     .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
     .plan-card {
@@ -1179,7 +1255,21 @@
         <a href="#contact" class="btn btn-ghost plan-cta" data-i18n="pl_cta">Talk to Us →</a>
       </div>
     </div>
-    <p class="plans-note animate" data-i18n="price_note">Not sure which plan fits? <a href="#contact" style="color:var(--primary-dark);font-weight:600;">Send us a message</a> and we'll figure it out together.</p>
+    <p class="plans-note animate" data-i18n="price_note">Not sure which plan fits? <a href="#quiz" style="color:var(--primary-dark);font-weight:600;" data-i18n="price_note_link">Take the quick quiz below →</a></p>
+  </div>
+</section>
+
+<!-- PLAN FINDER QUIZ -->
+<section class="section" id="quiz">
+  <div class="container">
+    <div class="section-tag animate"><span class="tag"><span class="dot"></span><span data-i18n="quiz_tag">Plan Finder</span></span></div>
+    <h2 class="section-title animate d1" data-i18n="quiz_title">Still Not Sure? <span class="accent">Let Us Help You Decide.</span></h2>
+    <p class="section-sub animate d2" data-i18n="quiz_sub">Answer 4 quick questions and get a personalised recommendation.</p>
+    <div class="quiz-wrap animate d3">
+      <div class="quiz-messages" id="quizMessages"></div>
+      <div class="quiz-opts" id="quizOpts"></div>
+      <div class="quiz-result" id="quizResult" style="display:none;"></div>
+    </div>
   </div>
 </section>
 
@@ -1405,6 +1495,9 @@ const t = {
     nav_product:'Product', nav_features:'Features', nav_pricing:'Pricing',
     nav_why:'Why Us', nav_faq:'FAQ', nav_contact:'Contact',
     partner_badge:'✦ Citora Authorized Partner', nav_cta:'Get Started', lang_label:'Language',
+    quiz_tag:'Plan Finder', quiz_title:'Still Not Sure? <span class="accent">Let Us Help You Decide.</span>',
+    quiz_sub:'Answer 4 quick questions and get a personalised recommendation.',
+    price_note_link:'Take the quick quiz below →',
     hero_tag:'Citora Official Authorized Partner',
     hero_h1:'Make Your Brand<br><span class="accent">Unforgettable to AI.</span>',
     hero_sub:'Wazcher is an authorized <strong>Citora</strong> partner. Get your brand cited by the AI engines your customers already trust: ChatGPT, Claude, Gemini, and Perplexity.',
@@ -1490,7 +1583,7 @@ const t = {
     price_tag:'Plans',
     price_title:'Find the Plan That <span class="accent">Fits Your Brand.</span>',
     price_sub:'Not sure which plan fits your brand? Talk to us and we\'ll help you find the right one.',
-    price_note:'Not sure which plan fits? <a href="#contact" style="color:var(--primary-dark);font-weight:600;">Send us a message</a> and we\'ll figure it out together.',
+    price_note:'Not sure which plan fits? <a href="#quiz" style="color:var(--primary-dark);font-weight:600;">Take the quick quiz below →</a>',
     pl_badge:'✦ Most Chosen',
     pl1_tier:'Starter', pl1_for:'For individuals and small brands',
     pl1_f1:'AI Profile editor', pl1_f2:'Brand monitoring', pl1_f3:'AI search testing', pl1_f4:'2 AI engines',
@@ -1549,6 +1642,9 @@ const t = {
     nav_product:'產品介紹', nav_features:'功能特色', nav_pricing:'方案選擇',
     nav_why:'為什麼選我們', nav_faq:'常見問題', nav_contact:'聯絡我們',
     partner_badge:'✦ Citora 官方授權代理商', nav_cta:'立即開始', lang_label:'語言',
+    quiz_tag:'方案推薦', quiz_title:'還不確定？<span class="accent">讓我們幫你決定。</span>',
+    quiz_sub:'回答 4 個問題，立刻獲得個人化推薦。',
+    price_note_link:'快速測驗找出適合你的方案 →',
     hero_tag:'Citora 官方授權代理商',
     hero_h1:'讓你的品牌<br><span class="accent">在 AI 時代被看見。</span>',
     hero_sub:'Wazcher 是 <strong>Citora</strong> 的授權代理商。讓你的品牌出現在 ChatGPT、Claude、Gemini 和 Perplexity 的推薦清單裡。',
@@ -1634,7 +1730,7 @@ const t = {
     price_tag:'方案介紹',
     price_title:'找到最適合你的<span class="accent">方案。</span>',
     price_sub:'不確定哪個方案最適合你的品牌？聯絡我們，我們幫你找出最合適的選擇。',
-    price_note:'還不確定哪個方案適合你？<a href="#contact" style="color:var(--primary-dark);font-weight:600;">傳訊息給我們</a>，一起找到最佳解法。',
+    price_note:'還不確定哪個方案適合你？<a href="#quiz" style="color:var(--primary-dark);font-weight:600;">快速測驗找出答案 →</a>',
     pl_badge:'✦ 最多人選擇',
     pl1_tier:'Starter', pl1_for:'適合個人創作者與小型品牌',
     pl1_f1:'AI Profile 編輯器', pl1_f2:'品牌監測', pl1_f3:'AI 搜尋測試', pl1_f4:'2 個 AI 引擎',
@@ -1709,6 +1805,10 @@ function setLang(lang) {
   // Close dropdown after selection
   const dd = document.getElementById('langDropdown');
   if (dd) dd.classList.remove('open');
+  // Restart quiz in new language if it has been initialised
+  if (typeof window.reinitQuiz === 'function' && document.getElementById('quizMessages').childElementCount > 0) {
+    window.reinitQuiz();
+  }
 
   // Update mobile lang buttons
   const mobEn = document.getElementById('mob-btn-en');
@@ -1748,6 +1848,183 @@ document.addEventListener('click', () => {
   const dd = document.getElementById('langDropdown');
   if (dd) dd.classList.remove('open');
 });
+
+// ─── PLAN FINDER QUIZ ──────────────────────────────────────────────────────────
+const quizData = {
+  en: {
+    intro: "Hi! I'll help you find the right Citora plan. Just answer 4 quick questions.",
+    questions: [
+      { q: "What best describes you?", opts: [
+        { label: "Individual creator or solo brand", tier: 1 },
+        { label: "Marketing team at a company", tier: 2 },
+        { label: "Agency managing multiple clients", tier: 3 },
+        { label: "Large enterprise team", tier: 4 },
+      ]},
+      { q: "How many AI engines do you want to monitor?", opts: [
+        { label: "2 engines is enough for now", tier: 1 },
+        { label: "All 4: ChatGPT, Claude, Gemini, Perplexity", tier: 2 },
+      ]},
+      { q: "Do you need A/B experiments to test what works?", opts: [
+        { label: "Yes, data-driven decisions matter to us", tier: 2 },
+        { label: "Not right now, monitoring is enough", tier: 1 },
+      ]},
+      { q: "How many brands or sites are you managing?", opts: [
+        { label: "Just 1", tier: 1 },
+        { label: "2 to 10", tier: 3 },
+        { label: "10+ or need white label", tier: 4 },
+      ]},
+    ],
+    results: {
+      1: { plan: "Starter", desc: "Perfect for getting started. Monitor 2 AI engines, build your AI Profile, and track your brand visibility.", cta: "Get Started with Starter", restart: "Retake Quiz" },
+      2: { plan: "Pro", desc: "Built for teams who want results. All 4 engines, A/B experiments, keyword discovery, and full brand analysis.", cta: "Get Started with Pro", restart: "Retake Quiz" },
+      3: { plan: "Business", desc: "Designed for agencies. Manage up to 35 sites, API access, advanced analytics, and priority support.", cta: "Get Started with Business", restart: "Retake Quiz" },
+      4: { plan: "Enterprise", desc: "For large teams that need full control. White label, custom subdomain, dedicated support, and custom integrations.", cta: "Talk to Us", restart: "Retake Quiz" },
+    },
+    rec: "We recommend",
+  },
+  zh: {
+    intro: "嗨！讓我幫你找到最適合的 Citora 方案，只需要回答 4 個問題。",
+    questions: [
+      { q: "請問你的角色是？", opts: [
+        { label: "個人創作者或單一品牌", tier: 1 },
+        { label: "公司行銷團隊", tier: 2 },
+        { label: "代理商（管理多個客戶）", tier: 3 },
+        { label: "大型企業團隊", tier: 4 },
+      ]},
+      { q: "你想監測幾個 AI 引擎？", opts: [
+        { label: "2 個引擎就夠了", tier: 1 },
+        { label: "全部 4 個：ChatGPT、Claude、Gemini、Perplexity", tier: 2 },
+      ]},
+      { q: "你需要 A/B 實驗功能嗎？", opts: [
+        { label: "需要，數據驗證很重要", tier: 2 },
+        { label: "目前不需要，監測就夠了", tier: 1 },
+      ]},
+      { q: "你管理幾個品牌或網站？", opts: [
+        { label: "只有 1 個", tier: 1 },
+        { label: "2 到 10 個", tier: 3 },
+        { label: "10 個以上，或需要白標功能", tier: 4 },
+      ]},
+    ],
+    results: {
+      1: { plan: "Starter", desc: "適合剛起步的品牌。監測 2 個 AI 引擎，建立 AI Profile，追蹤品牌能見度。", cta: "選擇 Starter", restart: "重新測試" },
+      2: { plan: "Pro", desc: "為想看到成果的行銷團隊而設計。全部 4 個引擎、A/B 實驗、關鍵字探索與完整品牌分析。", cta: "選擇 Pro", restart: "重新測試" },
+      3: { plan: "Business", desc: "代理商首選。最多管理 35 個網站、API 串接、進階數據分析與優先客服支援。", cta: "選擇 Business", restart: "重新測試" },
+      4: { plan: "Enterprise", desc: "為需要完整掌控的大型團隊而設計。白標品牌、自訂子網域、專屬客服與客製化整合。", cta: "與我們聯絡", restart: "重新測試" },
+    },
+    rec: "我們推薦你選擇",
+  }
+};
+
+(function () {
+  let qIdx = 0, maxTier = 1;
+  const msgs = document.getElementById('quizMessages');
+  const opts = document.getElementById('quizOpts');
+  const result = document.getElementById('quizResult');
+
+  function data() { return quizData[currentLang] || quizData.en; }
+
+  function addMsg(text, type) {
+    const row = document.createElement('div');
+    row.className = 'quiz-msg ' + type;
+    if (type === 'bot') {
+      row.innerHTML = '<div class="quiz-avatar">W</div><div class="quiz-bubble">' + text + '</div>';
+    } else {
+      row.innerHTML = '<div class="quiz-bubble">' + text + '</div>';
+    }
+    msgs.appendChild(row);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    const row = document.createElement('div');
+    row.className = 'quiz-msg bot'; row.id = 'quizTyping';
+    row.innerHTML = '<div class="quiz-avatar">W</div><div class="quiz-bubble"><div class="quiz-typing"><div class="quiz-dot"></div><div class="quiz-dot"></div><div class="quiz-dot"></div></div></div>';
+    msgs.appendChild(row);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('quizTyping');
+    if (el) el.remove();
+  }
+
+  function showQuestion(idx) {
+    const d = data();
+    opts.innerHTML = '';
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMsg(d.questions[idx].q, 'bot');
+      d.questions[idx].opts.forEach((o, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt'; btn.textContent = o.label;
+        btn.style.animationDelay = (i * 0.06) + 's';
+        btn.onclick = () => selectOpt(o, btn);
+        opts.appendChild(btn);
+      });
+    }, 700);
+  }
+
+  function selectOpt(opt, btn) {
+    opts.querySelectorAll('.quiz-opt').forEach(b => { b.disabled = true; });
+    btn.style.borderColor = 'var(--primary)';
+    btn.style.background = 'rgba(107,185,63,0.08)';
+    addMsg(opt.label, 'user');
+    if (opt.tier > maxTier) maxTier = opt.tier;
+    qIdx++;
+    opts.innerHTML = '';
+    if (qIdx < data().questions.length) {
+      setTimeout(() => showQuestion(qIdx), 400);
+    } else {
+      setTimeout(() => showResult(), 500);
+    }
+  }
+
+  function showResult() {
+    const d = data();
+    const res = d.results[maxTier];
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMsg(d.rec + ' <strong>' + res.plan + '</strong> ✦', 'bot');
+      opts.style.display = 'none';
+      result.style.display = 'block';
+      result.innerHTML =
+        '<div class="quiz-result-tag">' + d.rec + '</div>' +
+        '<div class="quiz-result-plan">' + res.plan + '</div>' +
+        '<div class="quiz-result-desc">' + res.desc + '</div>' +
+        '<div class="quiz-result-btns">' +
+        '<a href="#contact" class="btn btn-primary" style="font-size:14px;padding:10px 20px;">' + res.cta + '</a>' +
+        '<button class="quiz-restart" onclick="restartQuiz()">' + res.restart + '</button>' +
+        '</div>';
+      msgs.scrollTop = msgs.scrollHeight;
+    }, 700);
+  }
+
+  function start() {
+    qIdx = 0; maxTier = 1;
+    msgs.innerHTML = ''; opts.innerHTML = ''; opts.style.display = '';
+    result.style.display = 'none'; result.innerHTML = '';
+    showTyping();
+    setTimeout(() => {
+      removeTyping();
+      addMsg(data().intro, 'bot');
+      setTimeout(() => showQuestion(0), 500);
+    }, 600);
+  }
+
+  window.restartQuiz = start;
+  window.reinitQuiz = start;
+
+  // start once quiz section enters view
+  const quizSection = document.getElementById('quiz');
+  if (quizSection) {
+    const qObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { start(); qObs.disconnect(); }
+    }, { threshold: 0.2 });
+    qObs.observe(quizSection);
+  }
+})();
 
 // ─── SCROLL ANIMATIONS ─────────────────────────────────────────────────────────
 const obs = new IntersectionObserver(
