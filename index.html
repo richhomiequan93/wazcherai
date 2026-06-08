@@ -124,30 +124,59 @@
       transform: translateY(-3px);
     }
 
-    /* ─── LANG TOGGLE ─── */
-    .lang-toggle {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
+    /* ─── LANG DROPDOWN ─── */
+    .lang-dropdown { position: relative; }
+    .lang-drop-btn {
+      display: flex; align-items: center; gap: 6px;
+      padding: 7px 12px;
       border-radius: 8px;
-      padding: 3px;
+      border: 1px solid var(--border);
+      background: var(--bg3);
+      color: var(--text);
+      font-size: 13px; font-weight: 600;
+      cursor: pointer; font-family: inherit;
+      transition: border-color 0.2s, background 0.2s;
+      white-space: nowrap;
     }
-    .lang-btn {
-      padding: 5px 13px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 600;
-      border: none;
-      background: transparent;
-      color: var(--text3);
-      cursor: pointer;
-      font-family: inherit;
-      transition: background 0.2s, color 0.2s;
+    .lang-drop-btn:hover { border-color: var(--primary-border); background: var(--bg2); }
+    .lang-drop-chevron { transition: transform 0.2s; color: var(--text3); }
+    .lang-dropdown.open .lang-drop-chevron { transform: rotate(180deg); }
+    .lang-drop-menu {
+      display: none;
+      position: absolute; top: calc(100% + 8px); right: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow-md);
+      padding: 6px; min-width: 140px; z-index: 200;
     }
-    .lang-btn.active { background: var(--primary); color: var(--btn-text); }
-    .lang-btn:hover:not(.active) { color: var(--text); background: var(--border); }
+    .lang-dropdown.open .lang-drop-menu { display: block; }
+    .lang-opt {
+      display: flex; align-items: center; gap: 10px;
+      width: 100%; padding: 9px 12px; border-radius: 7px;
+      font-size: 13px; font-weight: 500;
+      color: var(--text2);
+      cursor: pointer; border: none; background: transparent;
+      font-family: inherit; text-align: left;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-opt:hover { background: var(--bg3); color: var(--text); }
+    .lang-opt.active { color: var(--primary-dark); font-weight: 700; background: rgba(107,185,63,0.08); }
+
+    /* Mobile lang row inside hamburger menu */
+    .mobile-lang-li { display: none; }
+    .mobile-lang-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+    }
+    .mobile-lang-row span { font-size: 13px; color: var(--text3); font-weight: 600; }
+    .mobile-lang-btns { display: flex; gap: 6px; }
+    .mobile-lang-btn {
+      padding: 6px 16px; border-radius: 7px; font-size: 13px; font-weight: 600;
+      border: 1px solid var(--border); background: transparent; color: var(--text2);
+      cursor: pointer; font-family: inherit; transition: all 0.2s;
+    }
+    .mobile-lang-btn.active { background: var(--primary); color: var(--btn-text); border-color: var(--primary); }
 
     /* ─── NAVBAR ─── */
     nav {
@@ -661,18 +690,19 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 960px) {
-      .nav-links, .partner-badge { display: none; }
+      .nav-links, .partner-badge, .nav-cta-btn, .lang-dropdown { display: none; }
       .hamburger { display: flex; }
       nav.menu-open .nav-links {
         display: flex; flex-direction: column;
         position: fixed; top: 68px; left: 0; right: 0;
         background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
-        padding: 16px 24px; border-bottom: 1px solid var(--border);
+        padding: 12px 16px 20px; border-bottom: 1px solid var(--border);
         box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        gap: 4px; z-index: 99;
+        gap: 2px; z-index: 99;
       }
       nav.menu-open .nav-links a { color: var(--text2); font-size: 15px; padding: 12px 16px; }
       nav.menu-open .nav-links a:hover { color: var(--text); background: var(--bg3); border-radius: 8px; }
+      .mobile-lang-li { display: block; border-top: 1px solid var(--border); margin-top: 8px; padding-top: 4px; }
       .steps-grid, .features-grid { grid-template-columns: 1fr 1fr; }
       .step-arrow { display: none; }
       .plans-grid { grid-template-columns: 1fr 1fr; }
@@ -691,8 +721,8 @@
       .hero { padding: 100px 0 60px; min-height: auto; }
       .hero h1 { font-size: clamp(32px, 9vw, 48px); margin: 18px 0 16px; }
       .hero-sub { font-size: 15px; margin-bottom: 28px; }
-      .hero-ctas { gap: 10px; margin-bottom: 36px; }
-      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .hero-ctas { gap: 10px; margin-bottom: 36px; flex-direction: column; align-items: flex-start; }
+      .hero-ctas .btn { white-space: nowrap; align-self: stretch; justify-content: center; }
       .ai-engines { gap: 8px; }
       .engine-chip { font-size: 12px; padding: 4px 10px; }
 
@@ -761,14 +791,29 @@
       <li><a href="#why"      data-i18n="nav_why">Why Us</a></li>
       <li><a href="#faq"      data-i18n="nav_faq">FAQ</a></li>
       <li><a href="#contact"  data-i18n="nav_contact">Contact</a></li>
+      <li class="mobile-lang-li">
+        <div class="mobile-lang-row">
+          <span data-i18n="lang_label">Language</span>
+          <div class="mobile-lang-btns">
+            <button class="mobile-lang-btn active" id="mob-btn-en" onclick="setLang('en')">EN</button>
+            <button class="mobile-lang-btn" id="mob-btn-zh" onclick="setLang('zh')">中文</button>
+          </div>
+        </div>
+      </li>
     </ul>
     <div class="nav-right">
       <span class="partner-badge" data-i18n="partner_badge">✦ Citora Authorized Partner</span>
-      <div class="lang-toggle">
-        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn"        id="btn-zh" onclick="setLang('zh')">中文</button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-drop-btn" id="langDropBtn" onclick="toggleLangDrop(event)">
+          <span id="langLabel">EN</span>
+          <svg class="lang-drop-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-drop-menu" id="langDropMenu">
+          <button class="lang-opt active" id="opt-en" onclick="setLang('en')">🇺🇸 English</button>
+          <button class="lang-opt" id="opt-zh" onclick="setLang('zh')">🇹🇼 中文</button>
+        </div>
       </div>
-      <a href="#contact" class="btn btn-primary" style="padding:10px 20px;font-size:14px;" data-i18n="nav_cta">Get Started</a>
+      <a href="#contact" class="btn btn-primary nav-cta-btn" style="padding:10px 20px;font-size:14px;" data-i18n="nav_cta">Get Started</a>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
   </div>
@@ -1371,7 +1416,7 @@ const t = {
   en: {
     nav_product:'Product', nav_features:'Features', nav_pricing:'Pricing',
     nav_why:'Why Us', nav_faq:'FAQ', nav_contact:'Contact',
-    partner_badge:'✦ Citora Authorized Partner', nav_cta:'Get Started',
+    partner_badge:'✦ Citora Authorized Partner', nav_cta:'Get Started', lang_label:'Language',
     hero_tag:'Citora Official Authorized Partner',
     hero_h1:'Make Your Brand<br><span class="accent">Unforgettable to AI.</span>',
     hero_sub:'Wazcher is an authorized <strong>Citora</strong> partner. Get your brand cited by the AI engines your customers already trust — ChatGPT, Claude, Gemini, and Perplexity.',
@@ -1515,7 +1560,7 @@ const t = {
   zh: {
     nav_product:'產品介紹', nav_features:'功能特色', nav_pricing:'方案選擇',
     nav_why:'為什麼選我們', nav_faq:'常見問題', nav_contact:'聯絡我們',
-    partner_badge:'✦ Citora 官方授權代理商', nav_cta:'免費試用',
+    partner_badge:'✦ Citora 官方授權代理商', nav_cta:'免費試用', lang_label:'語言',
     hero_tag:'Citora 官方授權代理商',
     hero_h1:'讓你的品牌<br><span class="accent">在 AI 時代被看見。</span>',
     hero_sub:'Wazcher 是 <strong>Citora</strong> 的授權代理商。讓你的品牌出現在 ChatGPT、Claude、Gemini 和 Perplexity 的推薦清單裡。',
@@ -1665,8 +1710,23 @@ function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('wazcher_lang', lang);
   document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+
+  // Update desktop dropdown
+  const label = document.getElementById('langLabel');
+  if (label) label.textContent = lang === 'en' ? 'EN' : '中文';
+  const optEn = document.getElementById('opt-en');
+  const optZh = document.getElementById('opt-zh');
+  if (optEn) optEn.classList.toggle('active', lang === 'en');
+  if (optZh) optZh.classList.toggle('active', lang === 'zh');
+  // Close dropdown after selection
+  const dd = document.getElementById('langDropdown');
+  if (dd) dd.classList.remove('open');
+
+  // Update mobile lang buttons
+  const mobEn = document.getElementById('mob-btn-en');
+  const mobZh = document.getElementById('mob-btn-zh');
+  if (mobEn) mobEn.classList.toggle('active', lang === 'en');
+  if (mobZh) mobZh.classList.toggle('active', lang === 'zh');
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
@@ -1690,6 +1750,16 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
 function toggleMenu() { navbar.classList.toggle('menu-open'); }
 document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navbar.classList.remove('menu-open')));
+
+// ─── LANG DROPDOWN ─────────────────────────────────────────────────────────────
+function toggleLangDrop(e) {
+  e.stopPropagation();
+  document.getElementById('langDropdown').classList.toggle('open');
+}
+document.addEventListener('click', () => {
+  const dd = document.getElementById('langDropdown');
+  if (dd) dd.classList.remove('open');
+});
 
 // ─── SCROLL ANIMATIONS ─────────────────────────────────────────────────────────
 const obs = new IntersectionObserver(
