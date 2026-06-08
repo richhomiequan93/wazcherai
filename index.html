@@ -640,7 +640,14 @@
     .mock-trend { display:flex; align-items:flex-end; gap:5px; height:60px; margin-top:12px; }
     .trend-bar { flex:1; height:var(--h); background:var(--primary); border-radius:3px 3px 0 0; opacity:0.7; }
 
-    @media (max-width:760px) { .ptab-panel.active { grid-template-columns:1fr; } }
+    @media (max-width:760px) {
+      .ptab-panel.active { grid-template-columns:1fr; }
+      .ptab-left { order: 1; }
+      .mock-ui { order: 2; }
+      .mock-ab { gap: 10px; }
+      .mock-big-bar { height: 64px; }
+      .mock-metrics { gap: 8px; }
+    }
 
     /* ─── REDUCED MOTION ─── */
     @media (prefers-reduced-motion: reduce) {
@@ -659,24 +666,82 @@
       nav.menu-open .nav-links {
         display: flex; flex-direction: column;
         position: fixed; top: 68px; left: 0; right: 0;
-        background: rgba(6,10,5,0.97); backdrop-filter: blur(20px);
+        background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
         padding: 16px 24px; border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
         gap: 4px; z-index: 99;
       }
+      nav.menu-open .nav-links a { color: var(--text2); font-size: 15px; padding: 12px 16px; }
+      nav.menu-open .nav-links a:hover { color: var(--text); background: var(--bg3); border-radius: 8px; }
       .steps-grid, .features-grid { grid-template-columns: 1fr 1fr; }
       .step-arrow { display: none; }
       .plans-grid { grid-template-columns: 1fr 1fr; }
       .why-grid, .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .section { padding: 72px 0; }
+      .section-sub { margin-bottom: 48px; }
     }
     @media (max-width: 600px) {
+      .section { padding: 56px 0; }
+      .section-sub { font-size: 15px; margin-bottom: 36px; }
+      .section-title { margin-bottom: 12px; }
+      .container { padding: 0 18px; }
+
+      /* Hero */
+      .hero { padding: 100px 0 60px; min-height: auto; }
+      .hero h1 { font-size: clamp(32px, 9vw, 48px); margin: 18px 0 16px; }
+      .hero-sub { font-size: 15px; margin-bottom: 28px; }
+      .hero-ctas { gap: 10px; margin-bottom: 36px; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .ai-engines { gap: 8px; }
+      .engine-chip { font-size: 12px; padding: 4px 10px; }
+
+      /* Nav */
+      .logo-text { font-size: 18px; }
+      .hamburger { padding: 8px; }
+
+      /* Tabs */
+      .ptabs { gap: 8px; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 4px; scrollbar-width: none; }
+      .ptabs::-webkit-scrollbar { display: none; }
+      .ptab { padding: 9px 16px; font-size: 13px; white-space: nowrap; flex-shrink: 0; }
+
+      /* Grids */
       .steps-grid, .features-grid, .plans-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-num { font-size: 28px; }
       .problem-grid { grid-template-columns: 1fr; }
+      .problem-left { padding: 24px; }
       .form-row { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 8px; }
+
+      /* Cards */
+      .plan-card { padding: 24px 20px 28px; }
+      .step-card { padding: 24px; }
+      .feature-card { padding: 22px 24px; }
+      .why-visual { display: none; }
+
+      /* Mock UI */
+      .mock-ui { padding: 16px; }
+      .mock-metrics { flex-wrap: wrap; }
+      .mock-metric { min-width: calc(50% - 6px); }
+      .mock-ab { gap: 8px; }
+      .mock-big-bar { height: 56px; }
+
+      /* Buttons */
+      .btn { min-height: 48px; }
+      .btn-lg { padding: 14px 24px; font-size: 15px; }
+
+      /* Table */
+      .table-wrap { font-size: 13px; }
+      th, td { padding: 10px 12px; }
+    }
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 30px; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-item { border-bottom: 1px solid var(--border); }
+      .engine-chip:nth-child(n+4) { display: none; }
     }
   </style>
 </head>
