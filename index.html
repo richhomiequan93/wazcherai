@@ -480,10 +480,10 @@
       border-bottom-right-radius: 4px; font-weight: 600;
     }
     .quiz-typing { display: flex; gap: 4px; align-items: center; padding: 4px 2px; }
-    .quiz-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); animation: qdot 1.2s infinite; }
-    .quiz-dot:nth-child(2) { animation-delay: 0.2s; }
-    .quiz-dot:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes qdot { 0%,60%,100%{transform:translateY(0);opacity:.4} 30%{transform:translateY(-5px);opacity:1} }
+    .quiz-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); animation: qdot 1.4s ease-in-out infinite; }
+    .quiz-dot:nth-child(2) { animation-delay: 0.22s; }
+    .quiz-dot:nth-child(3) { animation-delay: 0.44s; }
+    @keyframes qdot { 0%,66%,100%{transform:translateY(0);} 33%{transform:translateY(-5px);} }
     .quiz-opts {
       padding: 12px 28px 24px; display: flex; flex-direction: column; gap: 8px;
     }
@@ -1262,10 +1262,10 @@
 <!-- PLAN FINDER QUIZ -->
 <section class="section" id="quiz">
   <div class="container">
-    <div class="section-tag animate"><span class="tag"><span class="dot"></span><span data-i18n="quiz_tag">Plan Finder</span></span></div>
+    <div class="section-tag animate"><span class="tag" data-i18n="quiz_tag">Plan Finder</span></div>
     <h2 class="section-title animate d1" data-i18n="quiz_title">Still Not Sure? <span class="accent">Let Us Help You Decide.</span></h2>
     <p class="section-sub animate d2" data-i18n="quiz_sub">Answer 4 quick questions and get a personalised recommendation.</p>
-    <div class="quiz-wrap animate d3">
+    <div class="quiz-wrap">
       <div class="quiz-messages" id="quizMessages"></div>
       <div class="quiz-opts" id="quizOpts"></div>
       <div class="quiz-result" id="quizResult" style="display:none;"></div>
