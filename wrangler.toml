@@ -1,0 +1,8 @@
+name = "wazcherai"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "."
+
+[[d1_databases]]
+binding = "DB"
+database_name = "wazcher-contacts"
+database_id = "9406e0ee-cce9-49dd-a50f-19e830c05aaa"
