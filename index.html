@@ -2059,12 +2059,38 @@ function toggleFaq(btn) {
 }
 
 // ─── FORM ──────────────────────────────────────────────────────────────────────
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
-  btn.textContent = t[currentLang].f_success;
-  btn.style.background = 'var(--primary-dark)';
   btn.disabled = true;
+  btn.textContent = '...';
+
+  const payload = {
+    name:    document.getElementById('inp-name').value.trim(),
+    company: document.getElementById('inp-company').value.trim(),
+    email:   document.getElementById('inp-email').value.trim(),
+    plan:    document.getElementById('inp-plan').value,
+    message: document.getElementById('inp-msg').value.trim(),
+  };
+
+  try {
+    const res = await fetch('/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      btn.textContent = t[currentLang].f_success;
+      btn.style.background = 'var(--primary-dark)';
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = t[currentLang].f_submit;
+    alert('Something went wrong. Please email us directly at contact@wazcher.io');
+  }
 }
 
 // ─── PLATFORM TABS ─────────────────────────────────────────────────────────────
