@@ -1874,64 +1874,66 @@ document.addEventListener('click', () => {
 // ─── PLAN FINDER QUIZ ──────────────────────────────────────────────────────────
 const quizData = {
   en: {
-    intro: "Hi! I'll help you find the right plan. Just answer a few quick questions.",
+    intro: "Hi! Let's find the right plan for you. Just answer a few quick questions.",
     questions: [
-      { q: "What best describes you?", opts: [
-        { label: "Individual creator or solo brand", tier: 1 },
-        { label: "Marketing team at a company", tier: 2 },
-        { label: "Agency managing multiple clients", tier: 3 },
-        { label: "Large enterprise team", tier: 3 },
+      { q: "Who are you optimizing AI visibility for?", opts: [
+        { label: "My own brand or personal project", tier: 1 },
+        { label: "My company's marketing team", tier: 2 },
+        { label: "Multiple clients — I run an agency", tier: 3 },
+        { label: "A large organization with many brands", tier: 3 },
       ]},
-      { q: "How many client websites do you need to monitor?", opts: [
+      { q: "How many brands or websites do you manage?", opts: [
         { label: "Just 1", tier: 1 },
         { label: "2 to 10", tier: 2 },
         { label: "10 or more", tier: 3 },
       ]},
-      { q: "Do you need A/B experiments and AI scheduled monitoring?", opts: [
-        { label: "Not yet — I just want to explore", tier: 1 },
-        { label: "Yes, I need full analytics tools", tier: 2 },
+      { q: "What's your main goal right now?", opts: [
+        { label: "See how my brand currently shows up in AI search", tier: 1 },
+        { label: "Actively test and improve my AI visibility over time", tier: 2 },
+        { label: "Automate monitoring and run ongoing optimizations at scale", tier: 3 },
       ]},
-      { q: "Do you need API, SDK, or white label capabilities?", opts: [
-        { label: "No, standard features are enough", tier: 2 },
-        { label: "Yes, API access and priority support", tier: 2 },
-        { label: "Yes, including SDK and white label", tier: 3 },
+      { q: "How do you plan to use these insights?", opts: [
+        { label: "For my own brand's internal use", tier: 1 },
+        { label: "Share results with clients or leadership", tier: 2 },
+        { label: "Build services or products on top of the data", tier: 3 },
       ]},
     ],
     results: {
       1: { plan: "Trial", desc: "Perfect for exploring GEO. Monitor 1 website, test 2 AI channels, and start tracking your brand visibility. Application required.", cta: "Talk to Us", restart: "Retake Quiz" },
-      2: { plan: "Business", desc: "Built for marketing teams. 10 websites, 10,000 searches/month, all AI channels, A/B experiments, and social posting. API access and priority support available as add-ons.", cta: "Talk to Us", restart: "Retake Quiz" },
-      3: { plan: "Enterprise", desc: "For large teams that need full control. 30 websites, 30,000 searches/month, all features included. API, SDK, white label, and priority support available as add-ons.", cta: "Talk to Us", restart: "Retake Quiz" },
+      2: { plan: "Business", desc: "Built for marketing teams. 10 websites, 10,000 searches/month, all AI channels, social posting, and continuous performance tracking.", cta: "Talk to Us", restart: "Retake Quiz" },
+      3: { plan: "Enterprise", desc: "For large teams that need full control. 30 websites, 30,000 searches/month, and all features included. Custom add-ons available upon request.", cta: "Talk to Us", restart: "Retake Quiz" },
     },
     rec: "We recommend",
   },
   zh: {
     intro: "嗨！讓我幫你找到最適合的方案，只需要回答幾個問題。",
     questions: [
-      { q: "請問你的角色是？", opts: [
-        { label: "個人創作者或單一品牌", tier: 1 },
-        { label: "公司行銷團隊", tier: 2 },
-        { label: "代理商（管理多個客戶）", tier: 3 },
-        { label: "大型企業團隊", tier: 3 },
+      { q: "你在幫誰優化 AI 能見度？", opts: [
+        { label: "我自己的品牌或個人專案", tier: 1 },
+        { label: "公司內部的行銷團隊", tier: 2 },
+        { label: "多個客戶品牌（我是代理商）", tier: 3 },
+        { label: "大型企業，旗下有多個品牌", tier: 3 },
       ]},
-      { q: "你需要監測幾個客戶網站？", opts: [
+      { q: "你目前管理幾個品牌或網站？", opts: [
         { label: "只有 1 個", tier: 1 },
         { label: "2 到 10 個", tier: 2 },
         { label: "10 個以上", tier: 3 },
       ]},
-      { q: "你需要 A/B 實驗與 AI 排程監控功能嗎？", opts: [
-        { label: "目前不需要，先了解看看", tier: 1 },
-        { label: "需要，希望有完整分析工具", tier: 2 },
+      { q: "你現在最主要的目標是什麼？", opts: [
+        { label: "先了解我的品牌在 AI 搜尋中的現況", tier: 1 },
+        { label: "積極測試並持續改善 AI 能見度", tier: 2 },
+        { label: "大規模自動化監測，持續執行全面優化", tier: 3 },
       ]},
-      { q: "你需要 API、SDK 或白標功能嗎？", opts: [
-        { label: "目前不需要，標準功能就夠了", tier: 2 },
-        { label: "需要 API 存取與優先支援", tier: 2 },
-        { label: "需要 SDK 與白標方案", tier: 3 },
+      { q: "你打算怎麼運用這些數據？", opts: [
+        { label: "只用於自己品牌的內部優化", tier: 1 },
+        { label: "向客戶或管理層報告成果", tier: 2 },
+        { label: "在數據之上打造自己的服務或產品", tier: 3 },
       ]},
     ],
     results: {
       1: { plan: "試用版", desc: "適合初次探索 GEO 的品牌。監測 1 個網站、測試 2 個 AI 頻道，開始追蹤品牌能見度。需申請開通。", cta: "與我們聯絡", restart: "重新測試" },
-      2: { plan: "商業版", desc: "專為行銷團隊設計。管理 10 個網站、1 萬次搜尋/月、完整 AI 頻道、A/B 實驗、社群排程。API 存取與優先客服支援可另議加購。", cta: "與我們聯絡", restart: "重新測試" },
-      3: { plan: "企業版", desc: "適合需要完整掌控的大型團隊。30 個網站、3 萬次搜尋/月、全功能包含。API、SDK、白標方案與優先支援可另議加購。", cta: "與我們聯絡", restart: "重新測試" },
+      2: { plan: "商業版", desc: "專為行銷團隊設計。管理 10 個網站、1 萬次搜尋/月、完整 AI 頻道、社群排程，持續追蹤品牌表現。", cta: "與我們聯絡", restart: "重新測試" },
+      3: { plan: "企業版", desc: "適合需要完整掌控的大型團隊。30 個網站、3 萬次搜尋/月，全功能包含，進階功能可另議加購。", cta: "與我們聯絡", restart: "重新測試" },
     },
     rec: "我們推薦你選擇",
   }
