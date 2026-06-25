@@ -523,7 +523,7 @@
     }
 
     /* ─── PLANS ─── */
-    .plans-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
     .plan-card {
       padding: 28px 24px 32px;
       border-radius: var(--radius);
@@ -548,6 +548,7 @@
     .plan-features { list-style: none; flex: 1; margin-bottom: 24px; display: flex; flex-direction: column; gap: 9px; }
     .plan-features li { font-size: 13px; color: var(--text2); display: flex; align-items: center; gap: 8px; }
     .plan-features li::before { content: '✓'; color: var(--primary); font-weight: 700; flex-shrink: 0; }
+    .plan-note { font-size: 12px; color: var(--text3); text-align: center; margin-bottom: 12px; font-style: italic; }
     .plan-cta { width: 100%; justify-content: center; font-size: 14px; }
     .plans-note { text-align: center; font-size: 14px; color: var(--text3); }
 
@@ -770,7 +771,6 @@
       .mobile-lang-li { display: block; border-top: 1px solid var(--border); margin-top: 8px; padding-top: 4px; }
       .steps-grid, .features-grid { grid-template-columns: 1fr 1fr; }
       .step-arrow { display: none; }
-      .plans-grid { grid-template-columns: 1fr 1fr; }
       .why-grid, .contact-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .section { padding: 72px 0; }
@@ -860,7 +860,7 @@
           <span data-i18n="lang_label">Language</span>
           <div class="mobile-lang-btns">
             <button class="mobile-lang-btn active" id="mob-btn-en" onclick="setLang('en')">EN</button>
-            <button class="mobile-lang-btn" id="mob-btn-zh" onclick="setLang('zh')">中文</button>
+            <button class="mobile-lang-btn" id="mob-btn-zh" onclick="setLang('zh')">繁體中文</button>
           </div>
         </div>
       </li>
@@ -873,8 +873,8 @@
           <svg class="lang-drop-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="lang-drop-menu" id="langDropMenu">
-          <button class="lang-opt active" id="opt-en" onclick="setLang('en')">🇺🇸 English</button>
-          <button class="lang-opt" id="opt-zh" onclick="setLang('zh')">🇹🇼 中文</button>
+          <button class="lang-opt active" id="opt-en" onclick="setLang('en')">English</button>
+          <button class="lang-opt" id="opt-zh" onclick="setLang('zh')">繁體中文</button>
         </div>
       </div>
       <a href="#contact" class="btn btn-primary nav-cta-btn" style="padding:10px 20px;font-size:14px;" data-i18n="nav_cta">Get Started</a>
@@ -1178,17 +1178,17 @@
       <div class="glass feature-card animate d1">
         <div class="feature-header"><div class="feature-icon-wrap">🧪</div><h3 data-i18n="f4_title">A/B Experiments</h3></div>
         <p data-i18n="f4_body">Industry-first AI search split testing. Chi-squared significance, Cohen's h effect size, UCB bandit recommendations, per-engine breakdowns.</p>
-        <span class="feature-badge">Pro+</span>
+        <span class="feature-badge">Business+</span>
       </div>
       <div class="glass feature-card animate d2">
         <div class="feature-header"><div class="feature-icon-wrap">💡</div><h3 data-i18n="f5_title">Keyword Discovery</h3></div>
         <p data-i18n="f5_body">AI generates the queries your customers are actually asking. Categorized by brand, category, comparison, and problem-solution query types.</p>
-        <span class="feature-badge">Pro+</span>
+        <span class="feature-badge">Business+</span>
       </div>
       <div class="glass feature-card animate d3">
         <div class="feature-header"><div class="feature-icon-wrap">📣</div><h3 data-i18n="f6_title">Social Posting</h3></div>
         <p data-i18n="f6_body">Publish AI-optimized content to Facebook, Instagram, X and Threads from the same platform. Schedule posts with media support.</p>
-        <span class="feature-badge">Pro+</span>
+        <span class="feature-badge">Business+</span>
       </div>
     </div>
   </div>
@@ -1202,56 +1202,50 @@
     <p class="section-sub animate d2" data-i18n="price_sub">Not sure which plan fits your brand? Talk to us and we'll help you find the right one.</p>
     <div class="plans-grid">
       <div class="plan-card animate">
-        <div class="plan-tier" data-i18n="pl1_tier">Starter</div>
-        <div class="plan-for" data-i18n="pl1_for">For individuals and small brands</div>
+        <div class="plan-tier" data-i18n="pl1_tier">Trial</div>
+        <div class="plan-for" data-i18n="pl1_for">For brands exploring GEO for the first time</div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li data-i18n="pl1_f1">AI Profile editor</li>
-          <li data-i18n="pl1_f2">Brand monitoring</li>
-          <li data-i18n="pl1_f3">AI search testing</li>
-          <li data-i18n="pl1_f4">2 AI engines</li>
+          <li data-i18n="pl1_f1">1 client website</li>
+          <li data-i18n="pl1_f2">50 searches/month</li>
+          <li data-i18n="pl1_f3">2 standard AI channels</li>
+          <li data-i18n="pl1_f4">1 web monitor</li>
         </ul>
+        <p class="plan-note" data-i18n="pl1_note">Application required</p>
         <a href="#contact" class="btn btn-ghost plan-cta" data-i18n="pl_cta">Talk to Us →</a>
       </div>
 
       <div class="plan-card featured animate d1">
         <div class="plan-badge" data-i18n="pl_badge">✦ Most Chosen</div>
-        <div class="plan-tier accent" data-i18n="pl2_tier">Pro</div>
-        <div class="plan-for" data-i18n="pl2_for">For marketing teams who want results</div>
+        <div class="plan-tier accent" data-i18n="pl2_tier">Business</div>
+        <div class="plan-for" data-i18n="pl2_for">For marketing teams ready to scale</div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li data-i18n="pl2_f1">All 4 AI engines</li>
-          <li data-i18n="pl2_f2">A/B experiments</li>
-          <li data-i18n="pl2_f3">Keyword discovery</li>
-          <li data-i18n="pl2_f4">Social posting</li>
-          <li data-i18n="pl2_f5">Full brand analysis</li>
+          <li data-i18n="pl2_f1">10 client websites</li>
+          <li data-i18n="pl2_f2">10,000 searches + 3,500 AI analyses/month</li>
+          <li data-i18n="pl2_f3">Standard + Advanced channels (4 total)</li>
+          <li data-i18n="pl2_f4">20 web monitors + 15 AI monitors</li>
+          <li data-i18n="pl2_f5">30 brand tracking, 100 social posts/month</li>
+          <li data-i18n="pl2_f6">Scheduled indexing + A/B experiments</li>
+          <li data-i18n="pl2_f7">API access + priority support</li>
         </ul>
         <a href="#contact" class="btn btn-primary plan-cta" data-i18n="pl_cta_pro">Talk to Us →</a>
       </div>
 
       <div class="plan-card animate d2">
-        <div class="plan-tier" data-i18n="pl3_tier">Business</div>
-        <div class="plan-for" data-i18n="pl3_for">For agencies managing multiple clients</div>
+        <div class="plan-tier" data-i18n="pl3_tier">Enterprise</div>
+        <div class="plan-for" data-i18n="pl3_for">For large teams needing full control</div>
         <div class="plan-divider"></div>
         <ul class="plan-features">
-          <li data-i18n="pl3_f1">Up to 35 sites</li>
-          <li data-i18n="pl3_f2">API access</li>
-          <li data-i18n="pl3_f3">Advanced analytics</li>
-          <li data-i18n="pl3_f4">Priority support</li>
+          <li data-i18n="pl3_f1">30 client websites</li>
+          <li data-i18n="pl3_f2">30,000 searches + 10,000 AI analyses/month</li>
+          <li data-i18n="pl3_f3">Standard + Advanced channels (4 total)</li>
+          <li data-i18n="pl3_f4">50 web monitors + 50 AI monitors</li>
+          <li data-i18n="pl3_f5">100 brand tracking, 500 social posts/month</li>
+          <li data-i18n="pl3_f6">Scheduled indexing + A/B experiments</li>
+          <li data-i18n="pl3_f7">API + SDK access + white label</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost plan-cta" data-i18n="pl_cta">Talk to Us →</a>
-      </div>
-
-      <div class="plan-card animate d3">
-        <div class="plan-tier" data-i18n="pl4_tier">Enterprise</div>
-        <div class="plan-for" data-i18n="pl4_for">For large teams needing full control</div>
-        <div class="plan-divider"></div>
-        <ul class="plan-features">
-          <li data-i18n="pl4_f1">White label</li>
-          <li data-i18n="pl4_f2">Custom subdomain</li>
-          <li data-i18n="pl4_f3">Dedicated support</li>
-          <li data-i18n="pl4_f4">Custom integrations</li>
-        </ul>
+        <p class="plan-note" data-i18n="pl3_note">Pricing negotiable</p>
         <a href="#contact" class="btn btn-ghost plan-cta" data-i18n="pl_cta">Talk to Us →</a>
       </div>
     </div>
@@ -1264,7 +1258,7 @@
   <div class="container">
     <div class="section-tag animate"><span class="tag" data-i18n="quiz_tag">Plan Finder</span></div>
     <h2 class="section-title animate d1" data-i18n="quiz_title">Still Not Sure? <span class="accent">Let Us Help You Decide.</span></h2>
-    <p class="section-sub animate d2" data-i18n="quiz_sub">Answer 4 quick questions and get a personalised recommendation.</p>
+    <p class="section-sub animate d2" data-i18n="quiz_sub">Answer a few quick questions and get a personalised recommendation.</p>
     <div class="quiz-wrap">
       <div class="quiz-messages" id="quizMessages"></div>
       <div class="quiz-opts" id="quizOpts"></div>
@@ -1403,12 +1397,11 @@
             <label data-i18n="f_plan">Plan of Interest</label>
             <select id="inp-plan">
               <option value="" data-i18n="f_plan_ph">Select a plan</option>
-              <option data-i18n="f_opt1">Just Getting Started</option>
-              <option data-i18n="f_opt2">Starter Plan</option>
-              <option data-i18n="f_opt3">Pro Plan</option>
-              <option data-i18n="f_opt4">Business Plan</option>
-              <option data-i18n="f_opt5">Enterprise Plan</option>
-              <option data-i18n="f_opt6">Not sure yet</option>
+              <option data-i18n="f_opt1">Just exploring</option>
+              <option data-i18n="f_opt2">Trial Plan</option>
+              <option data-i18n="f_opt3">Business Plan</option>
+              <option data-i18n="f_opt4">Enterprise Plan</option>
+              <option data-i18n="f_opt5">Not sure yet</option>
             </select>
           </div>
           <div class="form-group">
@@ -1464,10 +1457,9 @@
       <div class="footer-col">
         <h3 data-i18n="ft_col2">Plans</h3>
         <ul>
-          <li><a href="#pricing" data-i18n="pl1_tier">Starter</a></li>
-          <li><a href="#pricing" data-i18n="pl2_tier">Pro</a></li>
-          <li><a href="#pricing" data-i18n="pl3_tier">Business</a></li>
-          <li><a href="#pricing" data-i18n="pl4_tier">Enterprise</a></li>
+          <li><a href="#pricing" data-i18n="pl1_tier">Trial</a></li>
+          <li><a href="#pricing" data-i18n="pl2_tier">Business</a></li>
+          <li><a href="#pricing" data-i18n="pl3_tier">Enterprise</a></li>
           <li><a href="#contact" data-i18n="ft_free">Contact Us</a></li>
         </ul>
       </div>
@@ -1496,7 +1488,7 @@ const t = {
     nav_why:'Why Us', nav_faq:'FAQ', nav_contact:'Contact',
     partner_badge:'✦ Citora Authorized Partner', nav_cta:'Get Started', lang_label:'Language',
     quiz_tag:'Plan Finder', quiz_title:'Still Not Sure? <span class="accent">Let Us Help You Decide.</span>',
-    quiz_sub:'Answer 4 quick questions and get a personalised recommendation.',
+    quiz_sub:'Answer a few quick questions and get a personalised recommendation.',
     price_note_link:'Take the quick quiz below →',
     hero_tag:'Citora Official Authorized Partner',
     hero_h1:'Make Your Brand<br><span class="accent">Unforgettable to AI.</span>',
@@ -1585,14 +1577,19 @@ const t = {
     price_sub:'Not sure which plan fits your brand? Talk to us and we\'ll help you find the right one.',
     price_note:'Not sure which plan fits? <a href="#quiz" style="color:var(--primary-dark);font-weight:600;">Take the quick quiz below →</a>',
     pl_badge:'✦ Most Chosen',
-    pl1_tier:'Starter', pl1_for:'For individuals and small brands',
-    pl1_f1:'AI Profile editor', pl1_f2:'Brand monitoring', pl1_f3:'AI search testing', pl1_f4:'2 AI engines',
-    pl2_tier:'Pro', pl2_for:'For marketing teams who want results',
-    pl2_f1:'All 4 AI engines', pl2_f2:'A/B experiments', pl2_f3:'Keyword discovery', pl2_f4:'Social posting', pl2_f5:'Full brand analysis',
-    pl3_tier:'Business', pl3_for:'For agencies managing multiple clients',
-    pl3_f1:'Up to 35 sites', pl3_f2:'API access', pl3_f3:'Advanced analytics', pl3_f4:'Priority support',
-    pl4_tier:'Enterprise', pl4_for:'For large teams needing full control',
-    pl4_f1:'White label', pl4_f2:'Custom subdomain', pl4_f3:'Dedicated support', pl4_f4:'Custom integrations',
+    pl1_tier:'Trial', pl1_for:'For brands exploring GEO for the first time',
+    pl1_f1:'1 client website', pl1_f2:'50 searches/month', pl1_f3:'2 standard AI channels', pl1_f4:'1 web monitor',
+    pl1_note:'Application required',
+    pl2_tier:'Business', pl2_for:'For marketing teams ready to scale',
+    pl2_f1:'10 client websites', pl2_f2:'10,000 searches + 3,500 AI analyses/month',
+    pl2_f3:'Standard + Advanced channels (4 total)', pl2_f4:'20 web monitors + 15 AI monitors',
+    pl2_f5:'30 brand tracking, 100 social posts/month', pl2_f6:'Scheduled indexing + A/B experiments',
+    pl2_f7:'API access + priority support',
+    pl3_tier:'Enterprise', pl3_for:'For large teams needing full control',
+    pl3_f1:'30 client websites', pl3_f2:'30,000 searches + 10,000 AI analyses/month',
+    pl3_f3:'Standard + Advanced channels (4 total)', pl3_f4:'50 web monitors + 50 AI monitors',
+    pl3_f5:'100 brand tracking, 500 social posts/month', pl3_f6:'Scheduled indexing + A/B experiments',
+    pl3_f7:'API + SDK access + white label', pl3_note:'Pricing negotiable',
     pl_cta:'Talk to Us →', pl_cta_pro:'Talk to Us →',
     why_tag:'Why Wazcher',
     why_title:"Citora's Platform. <span class='accent'>Expert Guidance.</span>",
@@ -1614,7 +1611,7 @@ const t = {
     faq4_q:'How do I know which plan is right for me?',
     faq4_a:"Every brand has different needs. Reach out to Wazcher and we'll walk you through the options, with no pressure, just a straightforward conversation about your goals.",
     faq5_q:'Which AI engines does Citora support?',
-    faq5_a:'Citora supports ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), and Perplexity. Pro plans and above include all four engines. Starter covers two.',
+    faq5_a:'Citora supports ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), and Perplexity. Business and Enterprise plans include all four engines. The Trial plan covers two standard channels.',
     faq6_q:'How do I get started?',
     faq6_a:'Fill out the contact form and Wazcher will reach out within 24 hours to set up your account, walk you through the platform, and get your first AI Profile live.',
     ct_tag:'Contact Us',
@@ -1623,8 +1620,8 @@ const t = {
     ct_email_label:'Email:', ct_partner:'Authorized Citora Partner', ct_response:'Response within 24 hours',
     f_name:'Name *', f_company:'Company', f_email:'Email *', f_plan:'Plan of Interest',
     f_plan_ph:'Select a plan', f_msg:'Message',
-    f_opt1:'Just Getting Started', f_opt2:'Starter Plan', f_opt3:'Pro Plan',
-    f_opt4:'Business Plan', f_opt5:'Enterprise Plan', f_opt6:'Not sure yet',
+    f_opt1:'Just exploring', f_opt2:'Trial Plan', f_opt3:'Business Plan',
+    f_opt4:'Enterprise Plan', f_opt5:'Not sure yet',
     f_submit:'Send Message', f_note:'We respond within 24 hours',
     f_success:'Message sent. We will be in touch shortly.',
     cta_title:'Ready to Make Your Brand <span class="accent">Unforgettable to AI?</span>',
@@ -1643,7 +1640,7 @@ const t = {
     nav_why:'為什麼選我們', nav_faq:'常見問題', nav_contact:'聯絡我們',
     partner_badge:'✦ Citora 官方授權代理商', nav_cta:'立即開始', lang_label:'語言',
     quiz_tag:'方案推薦', quiz_title:'還不確定？<span class="accent">讓我們幫你決定。</span>',
-    quiz_sub:'回答 4 個問題，立刻獲得個人化推薦。',
+    quiz_sub:'回答幾個問題，立刻獲得個人化推薦。',
     price_note_link:'快速測驗找出適合你的方案 →',
     hero_tag:'Citora 官方授權代理商',
     hero_h1:'讓你的品牌<br><span class="accent">在 AI 時代被看見。</span>',
@@ -1732,14 +1729,19 @@ const t = {
     price_sub:'不確定哪個方案最適合你的品牌？聯絡我們，我們幫你找出最合適的選擇。',
     price_note:'還不確定哪個方案適合你？<a href="#quiz" style="color:var(--primary-dark);font-weight:600;">快速測驗找出答案 →</a>',
     pl_badge:'✦ 最多人選擇',
-    pl1_tier:'Starter', pl1_for:'適合個人創作者與小型品牌',
-    pl1_f1:'AI Profile 編輯器', pl1_f2:'品牌監測', pl1_f3:'AI 搜尋測試', pl1_f4:'2 個 AI 引擎',
-    pl2_tier:'Pro', pl2_for:'適合想看到成果的行銷團隊',
-    pl2_f1:'全部 4 個 AI 引擎', pl2_f2:'A/B 實驗功能', pl2_f3:'關鍵字探索', pl2_f4:'社群貼文排程', pl2_f5:'完整品牌分析',
-    pl3_tier:'Business', pl3_for:'適合同時服務多客戶的代理商',
-    pl3_f1:'最多 35 個網站', pl3_f2:'API 串接', pl3_f3:'進階數據分析', pl3_f4:'優先客服支援',
-    pl4_tier:'Enterprise', pl4_for:'適合需要完整掌控權的大型企業',
-    pl4_f1:'白標品牌客製', pl4_f2:'自訂子網域', pl4_f3:'專屬客服團隊', pl4_f4:'客製化系統整合',
+    pl1_tier:'試用版', pl1_for:'適合初次探索 GEO 的品牌',
+    pl1_f1:'1 個客戶網站', pl1_f2:'50 次搜尋/月', pl1_f3:'2 個標準 AI 頻道', pl1_f4:'1 個 Web 監控',
+    pl1_note:'需申請開通',
+    pl2_tier:'商業版', pl2_for:'適合準備擴展的行銷團隊',
+    pl2_f1:'10 個客戶網站', pl2_f2:'10,000 次搜尋 + 3,500 次 AI 分析/月',
+    pl2_f3:'標準 + 進階頻道（共 4 個）', pl2_f4:'20 個 Web 監控 + 15 個 AI 排程監控',
+    pl2_f5:'30 個追蹤品牌，100 篇社群貼文/月', pl2_f6:'排程收錄 + A/B 實驗',
+    pl2_f7:'API 存取 + 優先客服支援',
+    pl3_tier:'企業版', pl3_for:'適合需要完整掌控的大型企業',
+    pl3_f1:'30 個客戶網站', pl3_f2:'30,000 次搜尋 + 10,000 次 AI 分析/月',
+    pl3_f3:'標準 + 進階頻道（共 4 個）', pl3_f4:'50 個 Web 監控 + 50 個 AI 排程監控',
+    pl3_f5:'100 個追蹤品牌，500 篇社群貼文/月', pl3_f6:'排程收錄 + A/B 實驗',
+    pl3_f7:'API + SDK 存取 + 白標方案', pl3_note:'開通價格另議',
     pl_cta:'與我們聯絡 →', pl_cta_pro:'與我們聯絡 →',
     why_tag:'為什麼選擇 Wazcher',
     why_title:"Citora 平台・<span class='accent'>專業夥伴陪跑。</span>",
@@ -1761,7 +1763,7 @@ const t = {
     faq4_q:'我怎麼知道哪個方案最適合我？',
     faq4_a:'每個品牌的需求都不一樣。聯絡 Wazcher，我們會帶你了解各方案的差異，沒有任何壓力，就是一場關於你品牌目標的直接對話。',
     faq5_q:'Citora 支援哪些 AI 引擎？',
-    faq5_a:'目前支援 ChatGPT（OpenAI）、Claude（Anthropic）、Gemini（Google）和 Perplexity。Pro 以上方案涵蓋全部四個引擎；Starter 方案包含其中兩個。',
+    faq5_a:'目前支援 ChatGPT（OpenAI）、Claude（Anthropic）、Gemini（Google）和 Perplexity。商業版與企業版涵蓋全部四個引擎；試用版包含其中兩個標準頻道。',
     faq6_q:'如何開始使用？',
     faq6_a:'填寫聯絡表單後，我們會在 24 小時內主動聯繫你，協助建立帳號、帶你熟悉平台，並讓第一個 AI Profile 正式上線。',
     ct_tag:'聯絡我們',
@@ -1770,8 +1772,8 @@ const t = {
     ct_email_label:'Email：', ct_partner:'Citora 官方授權代理商', ct_response:'24 小時內回覆',
     f_name:'姓名 *', f_company:'公司名稱', f_email:'Email *', f_plan:'有興趣的方案',
     f_plan_ph:'請選擇方案', f_msg:'留言內容',
-    f_opt1:'剛開始評估', f_opt2:'Starter 方案', f_opt3:'Pro 方案',
-    f_opt4:'Business 方案', f_opt5:'Enterprise 方案', f_opt6:'還沒確定',
+    f_opt1:'剛開始評估', f_opt2:'試用版', f_opt3:'商業版',
+    f_opt4:'企業版', f_opt5:'還沒確定',
     f_submit:'送出訊息', f_note:'我們會在 24 小時內回覆',
     f_success:'訊息已送出！我們會盡快與你聯繫。',
     cta_title:'準備好讓你的品牌<span class="accent">在 AI 中被看見？</span>',
@@ -1797,7 +1799,7 @@ function setLang(lang) {
 
   // Update desktop dropdown
   const label = document.getElementById('langLabel');
-  if (label) label.textContent = lang === 'en' ? 'EN' : '中文';
+  if (label) label.textContent = lang === 'en' ? 'EN' : '繁體中文';
   const optEn = document.getElementById('opt-en');
   const optZh = document.getElementById('opt-zh');
   if (optEn) optEn.classList.toggle('active', lang === 'en');
@@ -1852,64 +1854,64 @@ document.addEventListener('click', () => {
 // ─── PLAN FINDER QUIZ ──────────────────────────────────────────────────────────
 const quizData = {
   en: {
-    intro: "Hi! I'll help you find the right Citora plan. Just answer 4 quick questions.",
+    intro: "Hi! I'll help you find the right plan. Just answer a few quick questions.",
     questions: [
       { q: "What best describes you?", opts: [
         { label: "Individual creator or solo brand", tier: 1 },
         { label: "Marketing team at a company", tier: 2 },
         { label: "Agency managing multiple clients", tier: 3 },
-        { label: "Large enterprise team", tier: 4 },
+        { label: "Large enterprise team", tier: 3 },
       ]},
-      { q: "How many AI engines do you want to monitor?", opts: [
-        { label: "2 engines is enough for now", tier: 1 },
-        { label: "All 4: ChatGPT, Claude, Gemini, Perplexity", tier: 2 },
-      ]},
-      { q: "Do you need A/B experiments to test what works?", opts: [
-        { label: "Yes, data-driven decisions matter to us", tier: 2 },
-        { label: "Not right now, monitoring is enough", tier: 1 },
-      ]},
-      { q: "How many brands or sites are you managing?", opts: [
+      { q: "How many client websites do you need to monitor?", opts: [
         { label: "Just 1", tier: 1 },
-        { label: "2 to 10", tier: 3 },
-        { label: "10+ or need white label", tier: 4 },
+        { label: "2 to 10", tier: 2 },
+        { label: "10 or more", tier: 3 },
+      ]},
+      { q: "Do you need A/B experiments and AI scheduled monitoring?", opts: [
+        { label: "Not yet — I just want to explore", tier: 1 },
+        { label: "Yes, I need full analytics tools", tier: 2 },
+      ]},
+      { q: "Do you need API, SDK, or white label capabilities?", opts: [
+        { label: "No, standard features are enough", tier: 2 },
+        { label: "Yes, API access and priority support", tier: 2 },
+        { label: "Yes, including SDK and white label", tier: 3 },
       ]},
     ],
     results: {
-      1: { plan: "Starter", desc: "Perfect for getting started. Monitor 2 AI engines, build your AI Profile, and track your brand visibility.", cta: "Get Started with Starter", restart: "Retake Quiz" },
-      2: { plan: "Pro", desc: "Built for teams who want results. All 4 engines, A/B experiments, keyword discovery, and full brand analysis.", cta: "Get Started with Pro", restart: "Retake Quiz" },
-      3: { plan: "Business", desc: "Designed for agencies. Manage up to 35 sites, API access, advanced analytics, and priority support.", cta: "Get Started with Business", restart: "Retake Quiz" },
-      4: { plan: "Enterprise", desc: "For large teams that need full control. White label, custom subdomain, dedicated support, and custom integrations.", cta: "Talk to Us", restart: "Retake Quiz" },
+      1: { plan: "Trial", desc: "Perfect for exploring GEO. Monitor 1 website, test 2 AI channels, and start tracking your brand visibility. Application required.", cta: "Talk to Us", restart: "Retake Quiz" },
+      2: { plan: "Business", desc: "Built for marketing teams. 10 websites, 10,000 searches/month, full AI channels, A/B experiments, social posting, and priority support.", cta: "Talk to Us", restart: "Retake Quiz" },
+      3: { plan: "Enterprise", desc: "For large teams that need full control. 30 websites, API + SDK access, white label, and dedicated support. Pricing negotiable.", cta: "Talk to Us", restart: "Retake Quiz" },
     },
     rec: "We recommend",
   },
   zh: {
-    intro: "嗨！讓我幫你找到最適合的 Citora 方案，只需要回答 4 個問題。",
+    intro: "嗨！讓我幫你找到最適合的方案，只需要回答幾個問題。",
     questions: [
       { q: "請問你的角色是？", opts: [
         { label: "個人創作者或單一品牌", tier: 1 },
         { label: "公司行銷團隊", tier: 2 },
         { label: "代理商（管理多個客戶）", tier: 3 },
-        { label: "大型企業團隊", tier: 4 },
+        { label: "大型企業團隊", tier: 3 },
       ]},
-      { q: "你想監測幾個 AI 引擎？", opts: [
-        { label: "2 個引擎就夠了", tier: 1 },
-        { label: "全部 4 個：ChatGPT、Claude、Gemini、Perplexity", tier: 2 },
-      ]},
-      { q: "你需要 A/B 實驗功能嗎？", opts: [
-        { label: "需要，數據驗證很重要", tier: 2 },
-        { label: "目前不需要，監測就夠了", tier: 1 },
-      ]},
-      { q: "你管理幾個品牌或網站？", opts: [
+      { q: "你需要監測幾個客戶網站？", opts: [
         { label: "只有 1 個", tier: 1 },
-        { label: "2 到 10 個", tier: 3 },
-        { label: "10 個以上，或需要白標功能", tier: 4 },
+        { label: "2 到 10 個", tier: 2 },
+        { label: "10 個以上", tier: 3 },
+      ]},
+      { q: "你需要 A/B 實驗與 AI 排程監控功能嗎？", opts: [
+        { label: "目前不需要，先了解看看", tier: 1 },
+        { label: "需要，希望有完整分析工具", tier: 2 },
+      ]},
+      { q: "你需要 API、SDK 或白標功能嗎？", opts: [
+        { label: "目前不需要，標準功能就夠了", tier: 2 },
+        { label: "需要 API 存取與優先支援", tier: 2 },
+        { label: "需要 SDK 與白標方案", tier: 3 },
       ]},
     ],
     results: {
-      1: { plan: "Starter", desc: "適合剛起步的品牌。監測 2 個 AI 引擎，建立 AI Profile，追蹤品牌能見度。", cta: "選擇 Starter", restart: "重新測試" },
-      2: { plan: "Pro", desc: "為想看到成果的行銷團隊而設計。全部 4 個引擎、A/B 實驗、關鍵字探索與完整品牌分析。", cta: "選擇 Pro", restart: "重新測試" },
-      3: { plan: "Business", desc: "代理商首選。最多管理 35 個網站、API 串接、進階數據分析與優先客服支援。", cta: "選擇 Business", restart: "重新測試" },
-      4: { plan: "Enterprise", desc: "為需要完整掌控的大型團隊而設計。白標品牌、自訂子網域、專屬客服與客製化整合。", cta: "與我們聯絡", restart: "重新測試" },
+      1: { plan: "試用版", desc: "適合初次探索 GEO 的品牌。監測 1 個網站、測試 2 個 AI 頻道，開始追蹤品牌能見度。需申請開通。", cta: "與我們聯絡", restart: "重新測試" },
+      2: { plan: "商業版", desc: "專為行銷團隊設計。管理 10 個網站、1 萬次搜尋/月、完整 AI 頻道、A/B 實驗、社群排程，優先客服支援。", cta: "與我們聯絡", restart: "重新測試" },
+      3: { plan: "企業版", desc: "適合需要完整掌控的大型團隊。30 個網站、API + SDK 存取、白標方案、專屬客服支援，開通價格另議。", cta: "與我們聯絡", restart: "重新測試" },
     },
     rec: "我們推薦你選擇",
   }
