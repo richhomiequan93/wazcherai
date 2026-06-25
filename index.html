@@ -197,7 +197,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 8px;
     }
     .logo {
       display: flex;
@@ -209,13 +209,14 @@
     .logo-img { height: 34px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
     .nav-links a {
-      padding: 8px 14px;
+      padding: 8px 10px;
       color: var(--text2);
       text-decoration: none;
       font-size: 14px;
       font-weight: 500;
       border-radius: 8px;
       transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--text); background: var(--bg3); }
     .partner-badge {
@@ -549,6 +550,10 @@
     .plan-features li { font-size: 13px; color: var(--text2); display: flex; align-items: center; gap: 8px; }
     .plan-features li::before { content: '✓'; color: var(--primary); font-weight: 700; flex-shrink: 0; }
     .plan-note { font-size: 12px; color: var(--text3); text-align: center; margin-bottom: 12px; font-style: italic; }
+    .plan-addon-sep { height: 1px; background: var(--border); margin: 14px 0 10px; }
+    .plan-addon-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 8px; }
+    .plan-features li.addon { color: var(--text3); }
+    .plan-features li.addon::before { content: '+'; }
     .plan-cta { width: 100%; justify-content: center; font-size: 14px; }
     .plans-note { text-align: center; font-size: 14px; color: var(--text3); }
 
@@ -1227,8 +1232,14 @@
           <li data-i18n="pl2_f4">20 web monitors + 15 AI monitors</li>
           <li data-i18n="pl2_f5">30 brand tracking, 100 social posts/month</li>
           <li data-i18n="pl2_f6">Scheduled indexing + A/B experiments</li>
-          <li data-i18n="pl2_f7">API access + priority support</li>
         </ul>
+        <div class="plan-addon-sep"></div>
+        <div class="plan-addon-label" data-i18n="pl_addon_label">Optional add-ons</div>
+        <ul class="plan-features">
+          <li class="addon" data-i18n="pl2_a1">API access</li>
+          <li class="addon" data-i18n="pl2_a2">Priority support</li>
+        </ul>
+        <p class="plan-note" data-i18n="pl_addon_note">Pricing upon request</p>
         <a href="#contact" class="btn btn-primary plan-cta" data-i18n="pl_cta_pro">Talk to Us →</a>
       </div>
 
@@ -1243,9 +1254,16 @@
           <li data-i18n="pl3_f4">50 web monitors + 50 AI monitors</li>
           <li data-i18n="pl3_f5">100 brand tracking, 500 social posts/month</li>
           <li data-i18n="pl3_f6">Scheduled indexing + A/B experiments</li>
-          <li data-i18n="pl3_f7">API + SDK access + white label</li>
         </ul>
-        <p class="plan-note" data-i18n="pl3_note">Pricing negotiable</p>
+        <div class="plan-addon-sep"></div>
+        <div class="plan-addon-label" data-i18n="pl_addon_label">Optional add-ons</div>
+        <ul class="plan-features">
+          <li class="addon" data-i18n="pl3_a1">API access</li>
+          <li class="addon" data-i18n="pl3_a2">Priority support</li>
+          <li class="addon" data-i18n="pl3_a3">SDK access</li>
+          <li class="addon" data-i18n="pl3_a4">White label</li>
+        </ul>
+        <p class="plan-note" data-i18n="pl_addon_note">Pricing upon request</p>
         <a href="#contact" class="btn btn-ghost plan-cta" data-i18n="pl_cta">Talk to Us →</a>
       </div>
     </div>
@@ -1584,12 +1602,13 @@ const t = {
     pl2_f1:'10 client websites', pl2_f2:'10,000 searches + 3,500 AI analyses/month',
     pl2_f3:'Standard + Advanced channels (4 total)', pl2_f4:'20 web monitors + 15 AI monitors',
     pl2_f5:'30 brand tracking, 100 social posts/month', pl2_f6:'Scheduled indexing + A/B experiments',
-    pl2_f7:'API access + priority support',
+    pl2_a1:'API access', pl2_a2:'Priority support',
     pl3_tier:'Enterprise', pl3_for:'For large teams needing full control',
     pl3_f1:'30 client websites', pl3_f2:'30,000 searches + 10,000 AI analyses/month',
     pl3_f3:'Standard + Advanced channels (4 total)', pl3_f4:'50 web monitors + 50 AI monitors',
     pl3_f5:'100 brand tracking, 500 social posts/month', pl3_f6:'Scheduled indexing + A/B experiments',
-    pl3_f7:'API + SDK access + white label', pl3_note:'Pricing negotiable',
+    pl3_a1:'API access', pl3_a2:'Priority support', pl3_a3:'SDK access', pl3_a4:'White label',
+    pl_addon_label:'Optional add-ons', pl_addon_note:'Pricing upon request',
     pl_cta:'Talk to Us →', pl_cta_pro:'Talk to Us →',
     why_tag:'Why Wazcher',
     why_title:"Citora's Platform. <span class='accent'>Expert Guidance.</span>",
@@ -1736,12 +1755,13 @@ const t = {
     pl2_f1:'10 個客戶網站', pl2_f2:'10,000 次搜尋 + 3,500 次 AI 分析/月',
     pl2_f3:'標準 + 進階頻道（共 4 個）', pl2_f4:'20 個 Web 監控 + 15 個 AI 排程監控',
     pl2_f5:'30 個追蹤品牌，100 篇社群貼文/月', pl2_f6:'排程收錄 + A/B 實驗',
-    pl2_f7:'API 存取 + 優先客服支援',
+    pl2_a1:'API 存取', pl2_a2:'優先客服支援',
     pl3_tier:'企業版', pl3_for:'適合需要完整掌控的大型企業',
     pl3_f1:'30 個客戶網站', pl3_f2:'30,000 次搜尋 + 10,000 次 AI 分析/月',
     pl3_f3:'標準 + 進階頻道（共 4 個）', pl3_f4:'50 個 Web 監控 + 50 個 AI 排程監控',
     pl3_f5:'100 個追蹤品牌，500 篇社群貼文/月', pl3_f6:'排程收錄 + A/B 實驗',
-    pl3_f7:'API + SDK 存取 + 白標方案', pl3_note:'開通價格另議',
+    pl3_a1:'API 存取', pl3_a2:'優先客服支援', pl3_a3:'SDK 存取', pl3_a4:'白標方案',
+    pl_addon_label:'可選加購功能', pl_addon_note:'開通價格另議，歡迎聯絡',
     pl_cta:'與我們聯絡 →', pl_cta_pro:'與我們聯絡 →',
     why_tag:'為什麼選擇 Wazcher',
     why_title:"Citora 平台・<span class='accent'>專業夥伴陪跑。</span>",
@@ -1879,8 +1899,8 @@ const quizData = {
     ],
     results: {
       1: { plan: "Trial", desc: "Perfect for exploring GEO. Monitor 1 website, test 2 AI channels, and start tracking your brand visibility. Application required.", cta: "Talk to Us", restart: "Retake Quiz" },
-      2: { plan: "Business", desc: "Built for marketing teams. 10 websites, 10,000 searches/month, full AI channels, A/B experiments, social posting, and priority support.", cta: "Talk to Us", restart: "Retake Quiz" },
-      3: { plan: "Enterprise", desc: "For large teams that need full control. 30 websites, API + SDK access, white label, and dedicated support. Pricing negotiable.", cta: "Talk to Us", restart: "Retake Quiz" },
+      2: { plan: "Business", desc: "Built for marketing teams. 10 websites, 10,000 searches/month, all AI channels, A/B experiments, and social posting. API access and priority support available as add-ons.", cta: "Talk to Us", restart: "Retake Quiz" },
+      3: { plan: "Enterprise", desc: "For large teams that need full control. 30 websites, 30,000 searches/month, all features included. API, SDK, white label, and priority support available as add-ons.", cta: "Talk to Us", restart: "Retake Quiz" },
     },
     rec: "We recommend",
   },
@@ -1910,8 +1930,8 @@ const quizData = {
     ],
     results: {
       1: { plan: "試用版", desc: "適合初次探索 GEO 的品牌。監測 1 個網站、測試 2 個 AI 頻道，開始追蹤品牌能見度。需申請開通。", cta: "與我們聯絡", restart: "重新測試" },
-      2: { plan: "商業版", desc: "專為行銷團隊設計。管理 10 個網站、1 萬次搜尋/月、完整 AI 頻道、A/B 實驗、社群排程，優先客服支援。", cta: "與我們聯絡", restart: "重新測試" },
-      3: { plan: "企業版", desc: "適合需要完整掌控的大型團隊。30 個網站、API + SDK 存取、白標方案、專屬客服支援，開通價格另議。", cta: "與我們聯絡", restart: "重新測試" },
+      2: { plan: "商業版", desc: "專為行銷團隊設計。管理 10 個網站、1 萬次搜尋/月、完整 AI 頻道、A/B 實驗、社群排程。API 存取與優先客服支援可另議加購。", cta: "與我們聯絡", restart: "重新測試" },
+      3: { plan: "企業版", desc: "適合需要完整掌控的大型團隊。30 個網站、3 萬次搜尋/月、全功能包含。API、SDK、白標方案與優先支援可另議加購。", cta: "與我們聯絡", restart: "重新測試" },
     },
     rec: "我們推薦你選擇",
   }
